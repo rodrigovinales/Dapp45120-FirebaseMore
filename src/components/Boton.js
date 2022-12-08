@@ -28,16 +28,18 @@ const styles = StyleSheet.create({
     },
     buttonContainer: {
         backgroundColor: "#2196F3",
+        marginTop: 5,
         marginBottom: 5,
         paddingHorizontal: 20,
         paddingVertical: 10,
-        width: 220,
-        borderRadius: 20,
+        width: 250,
+        borderRadius: 10,
         
     },
     buttonText: {
         color: "#f9f9f9",
         textAlign:"center",
+        fontSize: 18,
         fontFamily: "MontSerrat",
     }
 })

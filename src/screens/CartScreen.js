@@ -16,57 +16,57 @@ const CartScreen = ({ navigation }) => {
   const handleConfirmCart = () => {
     dispatch(confirmCart(items, total))
     // dispatch(confirmCart(items, total, user)) // USAR CUANDO SE VEA LOGIN
-    Alert.alert('Compra Satisfactoria !!')
-    // navigation.navigate('Categories')
+    Alert.alert('Compra Satisfactoria, regresamos al menu principal !!')
+    navigation.navigate('Categories')
     dispatch(emptyCart(items, total))
   }
 
   const handleDeleteItem = (id) => {
-    console.log('Deleteando')
     dispatch(removeItem(id))
   }
 
   const handleConfirm = () => {
-    Alert.alert(
-      "Desea confirmar la compra??",
-      "SI para generar el pedido o seguir comprando",
-      [
-        { text: "Seguir Comprando", style: "cancel" },
-        { text: "SI, finalizar", onPress: () => handleConfirmCart() }
-      ]
-    );
-  }
-
-  if (total === 0) {
-    Alert.alert('Carrito Vacio !!, volvemos a Inicio')
-    // navigation.navigate('Categories')
+    if (total === 0) {
+      Alert.alert('Carrito Vacio!!, vuelva para seleccionar productos')
+    }
+    else {
+      Alert.alert(
+        "Desea confirmar la compra??",
+        "SI para generar el pedido o seguir comprando",
+        [
+          { text: "Seguir Comprando", style: "cancel" },
+          { text: "SI, finalizar", onPress: () => handleConfirmCart() }
+        ]
+      );
+    }
   }
 
   const renderItem = ({ item }) => (
     <CartItem item={item} onDelete={handleDeleteItem} />
   )
 
+
   return (
     <View style={styles.container}>
       <View styles={styles.list}>
         <FlatList
           data={items}
-          keyExtractor={item => item.id}
+          keyExtractor={item => item.id.toString()}
           renderItem={renderItem}
         />
       </View>
-      <Boton
-        onPress={() => handleConfirm()}
-        text="CONFIRMAR COMPRA"
-      />
       <View style={styles.footer}>
-        <TouchableOpacity style={styles.confirm}>
-          <Text>CONFIRMAR</Text>
+        <View style={styles.confirm}>
+          <Text>EFECTIVO / DEBITO</Text>
           <View style={styles.total}>
             <Text style={styles.text}>TOTAL</Text>
-            <Text style={styles.text}>{total}</Text>
+            <Text style={styles.text}>$ {total}</Text>
           </View>
-        </TouchableOpacity>
+        </View>
+        <Boton
+          onPress={() => handleConfirm()}
+          text="CONFIRMAR COMPRA"
+        />
       </View>
     </View>
   )

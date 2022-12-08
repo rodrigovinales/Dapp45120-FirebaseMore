@@ -1,6 +1,6 @@
 import { CART } from '../../data/cart'
 import { Alert } from 'react-native'
-import { ADD_ITEM, REMOVE_ITEM, CONFIRM_CART, EMPTY_CART  } from '../actions/cart.actions';
+import { ADD_ITEM, REMOVE_ITEM, CONFIRM_CART, EMPTY_CART } from '../actions/cart.actions';
 
 const INITIAL_STATE = {
     items: [],
@@ -12,10 +12,7 @@ const sumTotal = (list) => list.map(item => item.quantity * item.price).reduce((
 const CartReducer = (state = INITIAL_STATE, action) => {
     switch (action.type) {
         case ADD_ITEM:
-
             Alert.alert('Producto Agregado al carrito !!!');
-
-
             const indexItem = state.items.findIndex(item => item.id === action.item.id);
             if (indexItem === -1) {
                 const item = { ...action.item, quantity: 1 };
@@ -37,7 +34,7 @@ const CartReducer = (state = INITIAL_STATE, action) => {
                 total: sumTotal(items)
             }
         case REMOVE_ITEM:
-            const cleanCart = [...state.items].filter(item => item.id !== action.id);
+            const cleanCart = [...state.items].filter(item => item.id !== action.itemID);
             return {
                 ...state,
                 items: cleanCart,

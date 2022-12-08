@@ -44,9 +44,9 @@ const styles = StyleSheet.create({
     fontFamily: 'IndieFlower'
   },
   image: {
-    width: 100,
-    height: 100,
-    borderRadius: 6,
+    // width: 100,
+    height: 200,
+    borderRadius: 50,
     margin: 10
   }
 });

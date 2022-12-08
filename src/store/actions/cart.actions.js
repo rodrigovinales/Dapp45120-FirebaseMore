@@ -10,7 +10,7 @@ export const addItem = item => ({
     item,
 })
 
-export const removeItem = itemID => ({
+export const removeItem = (itemID) => ({
     type: REMOVE_ITEM,
     itemID,
 })

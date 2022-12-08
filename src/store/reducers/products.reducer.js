@@ -14,12 +14,12 @@ const ProductReducer = (state = initialState, action) => {
         case SELECTED_PRODUCT:
             return {
                 ...state,
-                selected: state.products.find(product => product.id === action.productId)
+                selected: state.products.find((product) => product.id === action.productID)
             }
         case FILTERED_PRODUCT:
             return {
                 ...state,
-                filteredProduct: state.products.filter(product => product.category === action.categoryID)
+                filteredProduct: state.products.filter((product) => product.category === action.categoryID)
             }
         default:
             return state;

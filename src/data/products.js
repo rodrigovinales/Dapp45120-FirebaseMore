@@ -17,7 +17,7 @@ export const PRODUCTS = [
     price: 3000,
   },
   {
-    id: "1",
+    id: "3",
     category: "2",
     name: "Humita",
     description: "Empanadas humeantes",
@@ -25,7 +25,7 @@ export const PRODUCTS = [
     price: 350,
   },
   {
-    id: "2",
+    id: "4",
     category: "2",
     name: "Carne Dulce ",
     description: "Mi empanada preferida",
@@ -33,7 +33,7 @@ export const PRODUCTS = [
     price: 350,
   },
   {
-    id: "1",
+    id: "5",
     category: "3",
     name: "Koka Kola",
     description: "Gaseosa con poco gas, lo perdio en el translado.",

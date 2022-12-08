@@ -9,11 +9,10 @@ import LoaderSpinner from '../components/Loader'
 const CategoryProductScreen = ({ navigation, route }) => {
 
   const dispatch = useDispatch()
-  const categoryProducts = useSelector(state => state.categories.filteredProduct)
-  const category = useSelector(state => state.categories.selected)
+  const categoryProducts = useSelector((state) => state.products.filteredProduct)
+  const category = useSelector((state) => state.categories.selected)
 
-  console.log("categoryProducts",categoryProducts) ///  NO ME DEVUELVE NADA, SOLO UNDEFINED, TENDRIA QUE DEVOLVER EL CONTENIDO DE PROCDUTOS
-
+  ///////////////////// LOADER SPINNER A GUSTO PARA LA CARGA DE PRODUCTOS  ///////////////
   const [Loader, setLoader] = useState(false)
   let content = <LoaderSpinner visible={!Loader} />
   useEffect(() => {
@@ -21,7 +20,7 @@ const CategoryProductScreen = ({ navigation, route }) => {
       content = setLoader(true)
     }, 2000);
   }, []);
-
+  /////////////////////////  FIN DE LOADER //////////////////////////////////////////////////////////
 
   useEffect(() => {
     dispatch(filteredProduct(category.id))
@@ -53,8 +52,6 @@ const CategoryProductScreen = ({ navigation, route }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: "50%"
-
   }
 })
 
